@@ -20,9 +20,9 @@ function playRound(playerSelection, computerSelection) {
 function getPlayerChoice() {
 	const choice = prompt("Rock, Paper or Scissors?")
 	switch (choice.toLowerCase()) {
-		case rock: { return 1; }
-		case paper: { return 2; }
-		case scissors: { return 3; }
+		case "rock": { return 1; }
+		case "paper": { return 2; }
+		case "scissors": { return 3; }
 	}
 }
 function game() {
