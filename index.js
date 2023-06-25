@@ -26,7 +26,7 @@ function getPlayerChoice() {
 	}
 }
 function game() {
-	for (let i = 0; i++;) {
+	for (let i = 0; i < 5; i++) {
 		let playerChoice = getPlayerChoice();
 		let computerChoice = getComputerChoice();
 		let win = playRound(playerChoice, computerChoice);
