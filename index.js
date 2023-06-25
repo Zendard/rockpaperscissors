@@ -5,13 +5,13 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 	if (playerSelection == 1 && computerSelection == 3) {
-		return "You Win!";
+		return true;
 	} else if (playerSelection == computerSelection) {
-		return "Equal";
+		return null;
 	} else if (playerSelection > computerSelection) {
-		return "You Win!"
+		return true;
 	} else {
-		return "You Lose!"
+		return false;
 	}
 }
 function getPlayerChoice() {
@@ -21,4 +21,7 @@ function getPlayerChoice() {
 		case paper: { return 2 }
 		case scissors: { return 3 }
 	}
+}
+function game() {
+
 }
