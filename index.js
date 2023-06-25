@@ -26,7 +26,7 @@ function getPlayerChoice() {
 	}
 }
 function game() {
-	for (let i = 0; i++) {
+	for (let i = 0; i++;) {
 		let playerChoice = getPlayerChoice();
 		let computerChoice = getComputerChoice();
 		let win = playRound(playerChoice, computerChoice);
@@ -38,3 +38,4 @@ function game() {
 		console.log(`Player score:${playerScore}\nComputer score:${computerScore}`)
 	}
 }
+game();
