@@ -31,27 +31,3 @@ function getPlayerChoice() {
 		}
 	}
 }
-function game() {
-	for (let i = 0; i < 5; i++) {
-		let playerChoice = getPlayerChoice();
-		let computerChoice = getComputerChoice();
-		let win = playRound(playerChoice, computerChoice);
-		switch (win) {
-			case null: {
-				playerScore++;
-				computerScore++;
-				break;
-			}
-			case true: {
-				playerScore++;
-				break;
-			}
-			case false: {
-				computerScore++;
-				break;
-			}
-		}
-		console.log(`Player score:${playerScore}\nComputer score:${computerScore}`);
-	}
-}
-game();
