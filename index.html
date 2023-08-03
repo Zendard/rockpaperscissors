@@ -8,7 +8,13 @@
 </head>
 
 <body>
-	<div class="display"></div>
+	<div class="display">
+		<div class="scores">
+			<h1 id="player-score"></h1>
+			<h1 id="computer-score"></h1>
+		</div>
+		<h1 id="winner"></h1>
+	</div>
 	<div class="buttons" style="display: flex; justify-content: center;">
 		<button id="rock">Rock</button>
 		<button id="paper">Paper</button>
@@ -16,5 +22,38 @@
 	</div>
 	<script src="./index.js"></script>
 </body>
+<style>
+	body {
+		background-color: gray;
+	}
+
+	.display {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	h1 {
+		font-family: "Roboto", sans-serif;
+	}
+
+	.scores,
+	#winner {
+		background-color: lightblue;
+		border-radius: 30px;
+		padding: 10px 20px;
+		width: 400px;
+		height: 160px;
+		margin: 0;
+	}
+
+	button {
+		background-color: lightblue;
+		border: none;
+		margin: 50px;
+		font-size: 30px;
+		padding: 10px;
+		border-radius: 30px;
+	}
+</style>
 
 </html>

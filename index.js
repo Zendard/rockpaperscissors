@@ -1,5 +1,11 @@
+const playerScoreDisplay = document.querySelector("#player-score");
+const computerScoreDisplay = document.querySelector("#computer-score");
+
 let playerScore = 0;
 let computerScore = 0;
+
+playerScoreDisplay.innerText = `Player:${playerScore}`;
+computerScoreDisplay.innerText = `Computer:${computerScore}`;
 
 function getComputerChoice() {
 	const choice = Math.floor(Math.random() * 3);
@@ -15,19 +21,5 @@ function playRound(playerSelection, computerSelection) {
 		return true;
 	} else {
 		return false;
-	}
-}
-function getPlayerChoice() {
-	const choice = prompt("Rock, Paper or Scissors?");
-	switch (choice.toLowerCase()) {
-		case "rock": {
-			return 1;
-		}
-		case "paper": {
-			return 2;
-		}
-		case "scissors": {
-			return 3;
-		}
 	}
 }
