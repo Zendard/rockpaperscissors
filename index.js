@@ -1,5 +1,45 @@
+const playerScoreDisplay = document.querySelector("#player-score");
+const computerScoreDisplay = document.querySelector("#computer-score");
+const winTextDisplay = document.querySelector("#winner");
+
 let playerScore = 0;
 let computerScore = 0;
+
+const buttons = document.querySelectorAll("button");
+
+function setScoreDisplay() {
+	playerScoreDisplay.innerText = `Player:${playerScore}`;
+	computerScoreDisplay.innerText = `Computer:${computerScore}`;
+}
+function getPlayerChoice(e) {
+	switch (this.id) {
+		case "rock":
+			playerSelection = 1;
+			break;
+		case "paper":
+			playerSelection = 2;
+			break;
+		case "scissors":
+			playerSelection = 3;
+			break;
+	}
+	console.log(playerSelection);
+	const computerSelection = getComputerChoice();
+	const win = playRound(playerSelection, computerSelection);
+	if (win == true) {
+		winTextDisplay.innerText = "You won!";
+		playerScore += 1;
+	} else {
+		winTextDisplay.innerText = "You lost!";
+		computerScore = 1;
+	}
+	setScoreDisplay();
+	checkEnd();
+}
+
+buttons.forEach((button) => {
+	button.addEventListener("click", getPlayerChoice);
+});
 
 function getComputerChoice() {
 	const choice = Math.floor(Math.random() * 3);
@@ -17,41 +57,19 @@ function playRound(playerSelection, computerSelection) {
 		return false;
 	}
 }
-function getPlayerChoice() {
-	const choice = prompt("Rock, Paper or Scissors?");
-	switch (choice.toLowerCase()) {
-		case "rock": {
-			return 1;
-		}
-		case "paper": {
-			return 2;
-		}
-		case "scissors": {
-			return 3;
-		}
+
+function checkEnd() {
+	if (playerScore >= 5) {
+		winTextDisplay.innerHTML = "You won the game";
+		buttons.forEach((button) => {
+			button.disabled = true;
+		});
+	} else if (computerScore >= 5) {
+		winTextDisplay.innerHTML = "You lost the game";
+		buttons.forEach((button) => {
+			button.disabled = true;
+		});
 	}
 }
-function game() {
-	for (let i = 0; i < 5; i++) {
-		let playerChoice = getPlayerChoice();
-		let computerChoice = getComputerChoice();
-		let win = playRound(playerChoice, computerChoice);
-		switch (win) {
-			case null: {
-				playerScore++;
-				computerScore++;
-				break;
-			}
-			case true: {
-				playerScore++;
-				break;
-			}
-			case false: {
-				computerScore++;
-				break;
-			}
-		}
-		console.log(`Player score:${playerScore}\nComputer score:${computerScore}`);
-	}
-}
-game();
+
+setScoreDisplay();
